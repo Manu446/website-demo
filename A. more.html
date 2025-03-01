@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="pics/logo.jpg" type="image/x-icon">
+    <title>About Future Life Academy</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        /* Header animation */
+        header {
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('pics/logo.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+            opacity: 0;
+            transform: translateY(-30px);
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            animation: zoomIn 1s ease-in-out forwards;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        /* Section animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Core values slide-in animation */
+        .values .value {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .values .value.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        /* Button hover animation */
+        .btn-lg {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-lg:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(50, 205, 50, 0.5);
+        }
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        footer a {
+            color: #32cd32;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /* Keyframes */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>About Future Life Academy and Junior School</h1>
+        <p>Empowering Young Minds for a Bright Future</p>
+    </header>
+
+    <main class="container my-5">
+        <section class="fade-in">
+            <h2 class="text-success mb-3">Who We Are</h2>
+            <p><em>Future Life Academy is a <em>Christian-founded institution</em> located along the serene Siaya-Luanda Road. Our school is dedicated to providing a holistic education that blends academic excellence with strong moral and spiritual foundations.</p>
+            <p>We believe in nurturing well-rounded individuals who are prepared to excel in all areas of life. Guided by Christian values, we instill discipline, integrity, and a sense of responsibility in our students.</p>
+            <p>At Future Life Academy, we foster a supportive and inclusive community where every learner can thrive. Our serene environment and dedicated staff provide the perfect atmosphere for personal growth, creativity, and innovation.</p>
+            <p>We are committed to shaping future leaders who will make meaningful contributions to society while upholding the values of faith, love, and service.</p>
+        </section>
+
+        <section class="fade-in">
+            <h2 class="text-success mb-3">Our Mission</h2>
+            <p><em>To nurture the child spiritually, physically, and give quality educational instructions for attainment of required standards, for future excellence in life and usage of available resources, for productivity.</em></p>
+        </section>
+
+        <section class="fade-in">
+            <h2 class="text-success mb-3">Our Vision</h2>
+            <p><em>Equipping and educating the child for excellence.</em></p>
+        </section>
+
+        <section class="fade-in">
+            <h2 class="text-success mb-3">Core Values</h2>
+            <div class="row values">
+                <div class="col-md-4 mb-3">
+                    <div class="value p-3"> <h3 class="text-success">Love</h3> <p>We foster a caring and nurturing environment where everyone feels valued.</p></div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="value p-3"> <h3 class="text-success">Honesty</h3> <p>We believe in truthfulness and transparency as the foundation of trust.</p></div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="value p-3"> <h3 class="text-success">Responsibility</h3> <p>We empower individuals to take accountability for their actions and decisions.</p></div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="value p-3"> <h3 class="text-success">Teamwork</h3> <p>We embrace collaboration to achieve shared goals and mutual success.</p></div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="value p-3"> <h3 class="text-success">Unity</h3> <p>We promote togetherness and inclusivity, celebrating our diversity.</p></div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="value p-3"> <h3 class="text-success">Respect</h3> <p>We value and honor the dignity and opinions of others in all interactions.</p></div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="value p-3"> <h3 class="text-success">Integrity</h3> <p>We uphold the highest ethical standards in every aspect of our work and relationships.</p></div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="value p-3"> <h3 class="text-success">Discipline</h3> <p>We instill the importance of focus, consistency, and self-control in achieving excellence.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center mb-5">
+            <button onclick="window.location.href='homepage s 2.html';" class="btn btn-outline-success btn-lg">Home</button>
+        </div>
+    </main>
+
+    <footer>
+        <em>
+            <p>&copy; 2025 Future Life Academy. All Rights Reserved.</p>
+            <p>Designed by Ace446</p>
+        </em>
+    </footer>
+
+    <!-- Bootstrap JS and Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for Scroll Animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const valueElements = document.querySelectorAll('.values .value');
+
+            const fadeInOnScroll = () => {
+                fadeElements.forEach(element => {
+                    const position = element.getBoundingClientRect().top;
+                    if (position < window.innerHeight * 0.85) {
+                        element.classList.add('visible');
+                    }
+                });
+                valueElements.forEach((element, index) => {
+                    const position = element.getBoundingClientRect().top;
+                    if (position < window.innerHeight * 0.85) {
+                        setTimeout(() => {
+                            element.classList.add('visible');
+                        }, index * 150);
+                    }
+                });
+            };
+
+            window.addEventListener("scroll", fadeInOnScroll);
+            fadeInOnScroll(); // Initial check on load
+        });
+    </script>
+
+</body>
+</html>
