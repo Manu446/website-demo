@@ -22,17 +22,17 @@
                 url('pics/nj.jpg') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 80px 0;
+            padding: 80px 10px;
             position: relative;
         }
 
         .logo {
-            width: 120px;
+            width: 100px;
             height: auto;
         }
 
         header h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
             margin-top: 15px;
         }
@@ -52,16 +52,14 @@
             color: #32cd32;
         }
 
-        footer {
-            background-color: #222;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
+        .section {
+            margin-bottom: 40px;
         }
 
-        footer a {
-            color: #32cd32;
-            text-decoration: none;
+        .section h2 {
+            border-left: 5px solid #32cd32;
+            padding-left: 10px;
+            margin-bottom: 20px;
         }
 
         .form-container {
@@ -76,6 +74,7 @@
             color: white;
             border-radius: 25px;
             transition: 0.3s;
+            width: 100%;
         }
 
         .form-container button:hover {
@@ -84,14 +83,45 @@
             border: 2px solid #32cd32;
         }
 
-        .section {
-            margin-bottom: 40px;
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
         }
 
-        .section h2 {
-            border-left: 5px solid #32cd32;
-            padding-left: 10px;
-            margin-bottom: 20px;
+        footer a {
+            color: #32cd32;
+            text-decoration: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 10px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .logo {
+                width: 80px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header {
+                padding: 40px 10px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .logo {
+                width: 70px;
+            }
         }
     </style>
 </head>
@@ -137,8 +167,8 @@
             </ul>
         </section>
 
-        <section class="form-container">
-            <h3>Apply Now</h3>
+        <section class="form-container mx-auto col-md-8 col-lg-6">
+            <h3 class="text-center">Apply Now</h3>
             <form action="/submit-application" method="POST">
                 <div class="mb-3">
                     <label class="form-label">First Name</label>
