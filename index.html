@@ -25,18 +25,16 @@
             list-style: none;
         }
 
+        /* ===== HEADER STYLING ===== */
         header {
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url('pics/nj.jpg');
-            background-size: cover; /* Ensures the image covers the header area */
-            background-position: center; /* Centers the image */
-            background-repeat: no-repeat; /* Prevents tiling */
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('pics/nj.jpg') center/cover no-repeat;
             color: white;
             text-align: center;
-            padding: 2.5rem 1rem;
+            padding: 2rem 1rem;
+            position: relative;
         }
         header h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
             font-weight: 700;
         }
@@ -60,18 +58,19 @@
             color: white;
         }
 
+        /* ===== LOGO STYLING ===== */
         .logo-container {
             position: absolute;
-            left: 2rem; /* Adjust the value to position the logo */
+            left: 1rem;
             top: 50%;
-            transform: translateY(-225%); /* Vertically center the logo */
+            transform: translateY(-50%);
         }
-
         .logo {
-            width: 100px; /* Adjust the size of the logo */
+            width: 80px;
             height: auto;
         }
 
+        /* ===== NAVIGATION BAR ===== */
         nav {
             background-color: #333;
             display: flex;
@@ -80,6 +79,8 @@
         }
         nav ul {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         nav li {
             margin: 0 1rem;
@@ -96,32 +97,19 @@
             border-radius: 8px;
         }
 
+        /* ===== HERO SECTION ===== */
         .hero {
-            background: url('pics/school-hero-modern.jpg') no-repeat center center/cover;
-            position: relative;
-            height: 400px;
+            background: url('pics/school-hero-modern.jpg') center/cover no-repeat;
+            height: 60vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             color: white;
             text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
-            overflow: hidden; 
+            text-align: center;
+            padding: 1rem;
         }
-
-        .hero .hero-logo {
-            background: url('pics/logo-removebg.png') no-repeat center center;
-            background-size: 400px; 
-            opacity: 0.4; 
-            position: absolute;
-            top: 50%; 
-            left: 50%; 
-            transform: translate(-50%, -50%); 
-            width: 500px; /*  width */
-            height: 500px; /* height */
-            z-index: 1;
-        }
-
         .hero button {
             background-color: #32cd32;
             color: white;
@@ -132,53 +120,36 @@
             border-radius: 25px;
             cursor: pointer;
             transition: 0.3s ease;
-            position: relative; 
-            z-index: 2; 
         }
-
         .hero button:hover {
             background-color: white;
             color: #32cd32;
         }
 
+        /* ===== CONTENT CONTAINER ===== */
         .container {
             max-width: 1200px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
-        .section {
-            margin-bottom: 3rem;
-        }
-        .section h2 {
-            color: #006400;
-            margin-bottom: 1rem;
-            font-size: 2rem;
-            text-align: center;
-        }
-        .section p {
-            text-align: center;
-            margin-bottom: 2rem;
-        
-        }
+
+        /* ===== GRID SYSTEM FOR RESPONSIVENESS ===== */
         .values-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 1rem;
-            justify-content: center;
+            text-align: center;
             margin-top: 1rem;
         }
-
         .value {
             background-color: #006400;
             color: white;
             font-weight: bold;
-            text-align: center;
             padding: 0.8rem 1rem;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: 0.3s ease;
         }
-
         .value:hover {
             background-color: #32cd32;
             transform: translateY(-5px);
@@ -214,108 +185,89 @@
             font-size: 1.4rem;
         }
 
+        /* ===== FOOTER ===== */
         footer {
             background-color: #333;
             color: white;
             text-align: center;
             padding: 2rem 1rem;
         }
-        footer a {
-            color: #32cd32;
+
+        /* ===== MEDIA QUERIES FOR RESPONSIVENESS ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 1rem;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            .logo {
+                width: 60px;
+            }
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                flex-direction: column;
+                padding: 0.5rem;
+            }
+            nav li {
+                margin-bottom: 0.5rem;
+            }
+            .hero {
+                height: 50vh;
+            }
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            .hero button {
+                font-size: 0.9rem;
+                padding: 0.6rem 1.2rem;
+            }
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cards {
+                grid-template-columns: 1fr;
+            }
         }
-        footer a:hover {
-            text-decoration: underline;
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .hero {
+                height: 40vh;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-
     <header>
         <div class="logo-container">
-            <img src="pics/logo-removebg.png" alt="Future Life Academy Logo" class="logo">
+            <img src="pics/logo-removebg.png" alt="Logo" class="logo">
         </div>
-        <h1>Future Life Academy and Junior School</h1>
+        <h1>Future Life Academy</h1>
         <p><em>One Way One Goal</em></p>
         <button><a href="enrollment.html">Enroll Now</a></button>
     </header>
-
-    <nav>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="A. more.html">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="A. academics.html">Academics</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="A. admissions.html">Admissions</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="A. school life.html">School Life</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="A. contacts.html">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="hero">
-        <div class="hero-logo"></div>
-        <h2>Welcome to Future Life Academy</h2>
-        <button><a href="more.html">Explore More</a></button>
-    </div>
-    
     
     <main class="container">
-        <section id="about" class="section">
+        <section class="section">
             <h2>Core Values</h2>
-            <p>Our core values guide every aspect of our journey, shaping individuals of strong:</p>
             <div class="values-grid">
                 <div class="value">Love</div>
                 <div class="value">Honesty</div>
-                <div class="value">Responsibility</div>
-                <div class="value">Teamwork</div>
-                <div class="value">Unity</div>
-                <div class="value">Respect</div>
-                <div class="value">Integrity</div>
-                <div class="value">Discipline</div>
-            </div>
-        </section>
-        
-        <section id="features" class="section">
-            <h2>Our Offerings</h2>
-            <div class="cards">
-                <div class="card">
-                    <img src="pics/outgoing.jpg" alt="Classroom">
-                    <div class="card-content">
-                        <h3>Modern Classrooms</h3>
-                        <p>State-of-the-art classrooms designed for 21st-century learning.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="pics/running.JPG" alt="Sports">
-                    <div class="card-content">
-                        <h3>Co-Curricular Activities</h3>
-                        <p>We offer sports, music, drama, and clubs for all-round growth.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="pics/bus.JPG" alt="Transport">
-                    <div class="card-content">
-                        <h3>Efficient Transport</h3>
-                        <p>Pick up and Dropping of kids is secure.</p>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
-
+    
     <footer>
-        <em><p>&copy; 2025 Future Life Academy. All Rights Reserved.</p>
-        <p>Designed by Ace446</p></em>
+        <p>&copy; 2025 Future Life Academy. Designed by Ace446</p>
     </footer>
-
 </body>
 </html>
