@@ -26,61 +26,55 @@
         ul {
             list-style: none;
         }
-
+        
         header {
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url('pics/contact.jpg');
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('pics/contact.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             color: white;
             text-align: center;
-            padding: 2.5rem 1rem;
+            padding: 2rem 1rem;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            gap: 1rem;
-            animation: slideDown 1s ease-out;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeInDown 1s forwards;
         }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
+        @keyframes fadeInDown {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
-        .logo-container {
-            display: block;
-        }
-
+        
         .logo {
             width: 80px;
             height: auto;
-            animation: fadeIn 1.5s ease-in-out;
         }
-
         header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+            font-size: 2rem;
+            margin-top: 0.5rem;
+            text-align: center;
         }
-
+        
         nav {
             background-color: #333;
             display: flex;
             justify-content: center;
             padding: 1rem 0;
+            flex-wrap: wrap;
         }
         nav ul {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0;
         }
         nav li {
-            margin: 0 1rem;
+            margin: 0.5rem;
         }
         nav a {
             color: white;
@@ -92,33 +86,15 @@
         nav a:hover {
             background-color: #32cd32;
             border-radius: 8px;
+            transform: scale(1.1);
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
-
-        .section {
-            margin-bottom: 3rem;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        .section.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section h2 {
-            color: #006400;
-            margin-bottom: 1rem;
-            font-size: 2rem;
-            text-align: center;
-        }
-
+        
         .contact-form {
             display: flex;
             flex-direction: column;
@@ -128,16 +104,13 @@
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1.5s ease-in-out;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .contact-form.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .contact-form input, .contact-form textarea {
@@ -148,7 +121,7 @@
             border-radius: 8px;
             font-size: 1rem;
         }
-
+        
         .contact-form button {
             background-color: #32cd32;
             color: white;
@@ -160,110 +133,123 @@
             cursor: pointer;
             transition: 0.3s ease;
         }
-
+        
         .contact-form button:hover {
             background-color: white;
             color: #32cd32;
             transform: scale(1.1);
         }
-
+        
         .social-media {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
             margin-top: 2rem;
         }
-
         .social-media a {
             font-size: 2rem;
             color: #333;
-            transition: 0.3s;
+            transition: 0.3s ease-in-out;
+            opacity: 0;
+            transform: scale(0.8);
         }
-
-        .social-media a:hover {
-            color: #32cd32;
-            transform: scale(1.2);
+        .social-media a.show {
+            opacity: 1;
+            transform: scale(1);
         }
-
+        
         footer {
             background-color: #333;
             color: white;
             text-align: center;
             padding: 2rem 1rem;
         }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .contact-form {
+                width: 90%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 1rem;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-form {
+                width: 95%;
+                padding: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
-
     <header>
-        <div class="logo-container">
-            <img src="pics/logo-removebg.png" alt="Future Life Academy Logo" class="logo">
-        </div>
+        <img src="pics/logo-removebg.png" alt="Future Life Academy Logo" class="logo">
         <h1>Future Life Academy and Junior School</h1>
     </header>
 
     <nav>
         <ul>
             <li><a href="index.html"><i class="fas fa-home"></i></a></li>
-            <li><a href="A. more.html">About Us</a></li>
-            <li><a href="A. academics.html">Academics</a></li>
-            <li><a href="A. admissions.html">Admissions</a></li>
-            <li><a href="A. school life.html">School Life</a></li>
-            <li><a href="A. contacts.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="A. more.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="A. academics.html">Academics</a></li>
+            <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
+            <li class="nav-item"><a class="nav-link" href="A. school life.html">School Life</a></li>
+            <li class="nav-item"><a class="nav-link active" href="A. contacts.html">Contact</a></li>
         </ul>
     </nav>
 
     <main class="container">
-        <section id="contact" class="section">
-            <h2>Contact Us</h2>
-            <p>Reach us via the form below or our social media channels.</p>
-
-            <div class="contact-form">
-                <h3>Get in Touch</h3>
-                <form action="submit_form.php" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
-
-            <div class="social-media">
-                <a href="https://www.facebook.com/futuremasomo" target="_blank">
-                    <i class="fab fa-facebook" style="color:#1877F2; font-size: 2rem;"></i>
-                </a>
-                
-                <a href="https://www.instagram.com/futurelife_academy" target="_blank">
-                    <i class="fab fa-instagram" style="color:#e40ac0; font-size: 2rem;"></i>
-                </a>
-                
-                <a href="https://wa.me/YourPhoneNumber" target="_blank">
-                    <i class="fab fa-whatsapp" style="color:#25D366; font-size: 2rem;"></i>
-                </a>
-                
-                            </div>
+        <section class="contact-form section">
+            <h3>Get in Touch</h3>
+            <form>
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Future Life Academy. All Rights Reserved.</p>
-        <p>Designed by Ace446</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com/futuremasomo" target="_blank">
+                <i class="fab fa-facebook" style="color:#1877F2; font-size: 2rem;"></i>
+            </a>
+            
+            <a href="https://www.instagram.com/YourPage" target="_blank">
+                <i class="fab fa-instagram" style="color:#e40ac0; font-size: 2rem;"></i>
+            </a>
+            
+            <a href="https://wa.me/YourPhoneNumber" target="_blank">
+                <i class="fab fa-whatsapp" style="color:#25D366; font-size: 2rem;"></i>
+            </a>
+            
+        </div>
     </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const sections = document.querySelectorAll(".section");
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("show");
-                    }
-                });
-            }, { threshold: 0.3 });
-
-            sections.forEach(section => observer.observe(section));
+            document.querySelector(".contact-form").classList.add("show");
+            setTimeout(() => {
+                document.querySelectorAll(".social-media a").forEach(icon => icon.classList.add("show"));
+            }, 500);
         });
     </script>
-
 </body>
 </html>
