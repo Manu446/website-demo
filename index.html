@@ -2,162 +2,338 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="pics/logo.jpg" type="image/x-icon">
     <title>Future Life Academy</title>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-    
     <style>
-        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f4f8;
             color: #333;
+            line-height: 1.6;
         }
-        
-        /* Navbar */
-        .navbar {
-            background-color: #333;
+        a {
+            text-decoration: none;
+            color: inherit;
         }
-        .navbar-brand img {
-            width: 50px;
-            margin-right: 10px;
+        ul {
+            list-style: none;
         }
-        .navbar-nav .nav-link {
+
+        /* HEADER */
+        header {
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('pics/nj.jpg') center/cover no-repeat;
             color: white;
-            font-weight: 600;
-            transition: 0.3s;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            position: relative;
         }
-        .navbar-nav .nav-link:hover {
-            color: #32cd32;
+        .logo-container {
+            position: absolute;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
         }
-
-        /* Header Section */
-        .carousel-item img {
-            height: 75vh;
-            object-fit: cover;
+        .logo {
+            width: 80px;
+            height: auto;
         }
-        .carousel-caption {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 15px;
-            border-radius: 10px;
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
         }
-
-        /* Core Values */
-        .core-values .card {
-            border: 2px solid #006400;
-            transition: transform 0.3s ease;
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
-        .core-values .card:hover {
-            transform: translateY(-5px);
+        header button {
+            background-color: white;
+            color: #006400;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        header button:hover {
             background-color: #32cd32;
             color: white;
         }
 
-        /* Footer */
+        /* NAVIGATION */
+        nav {
+            background-color: #333;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-links {
+            display: flex;
+        }
+        .nav-links li {
+            margin: 0 1rem;
+        }
+        .nav-links a {
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: #32cd32;
+            border-radius: 8px;
+        }
+
+        /* MOBILE NAV */
+        .menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: url('pics/school-hero-modern.jpg') center/cover no-repeat;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 1rem;
+        }
+        .hero button {
+            background-color: #32cd32;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .hero button:hover {
+            background-color: white;
+            color: #32cd32;
+        }
+
+        /* MAIN CONTENT */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .section h2 {
+            color: #006400;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        /* CORE VALUES */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .value {
+            background-color: #006400;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 0.8rem;
+            border-radius: 10px;
+            transition: 0.3s ease;
+        }
+        .value:hover {
+            background-color: #32cd32;
+            transform: translateY(-5px);
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 1rem;
+        }
+        .card-content h3 {
+            color: #006400;
+            font-size: 1.4rem;
+        }
+
+        /* FOOTER */
         footer {
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 1rem;
+            padding: 2rem 1rem;
+        }
+        footer a {
+            color: #32cd32;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .logo {
+                width: 60px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: #333;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .nav-links li {
+                margin: 1rem 0;
+            }
         }
     </style>
 </head>
-
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="pics/logo-removebg.png" alt="Logo">
-                <span>Future Life Academy</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="A. more.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="A. academics.html">Academics</a></li>
-                    <li class="nav-item"><a class="nav-link" href="A. admissions.html">Admissions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="A. school life.html">School Life</a></li>
-                    <li class="nav-item"><a class="nav-link" href="A. contacts.html">Contact</a></li>
-                </ul>
-            </div>
+    <header>
+        <div class="logo-container">
+            <img src="pics/logo-removebg.png" alt="Future Life Academy Logo" class="logo">
         </div>
+        <h1>Future Life Academy</h1>
+        <p><em>One Way One Goal</em></p>
+        <button><a href="enrollment.html">Enroll Now</a></button>
+    </header>
+
+    <nav>
+        <span class="menu-icon" onclick="toggleMenu()">☰</span>
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a class="nav-link" href="A. more.html">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="A. academics.html">Academics</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="A. admissions.html">Admissions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="A. school life.html">School Life</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="A. contacts.html">Contact</a>
+            </li>
+        </ul>
     </nav>
-
-    <!-- Carousel Banner -->
-    <div id="carouselHeader" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="pics/nj.jpg" class="d-block w-100" alt="Banner 1">
-                <div class="carousel-caption">
-                    <h5>Welcome to Future Life Academy</h5>
-                    <p>Shaping the leaders of tomorrow, today.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="pics/Ecde.jpg" class="d-block w-100" alt="Banner 2">
-                <div class="carousel-caption">
-                    <h5>21st Century Learning</h5>
-                    <p>Modern classrooms with innovative teaching methods.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="pics/outgoing.jpg" class="d-block w-100" alt="Banner 3">
-                <div class="carousel-caption">
-                    <h5>Co-Curricular Excellence</h5>
-                    <p>Sports, arts, and clubs for holistic development.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="pics/bus.JPG" class="d-block w-100" alt="Banner 4">
-                <div class="carousel-caption">
-                    <h5>Efficient Transport</h5>
-                    <p>Ensuring safe and reliable transport for students.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Carousel Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselHeader" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselHeader" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
+    <div class="hero">
+        <div class="hero-logo"></div>
+        <h2>Welcome to Future Life Academy</h2>
+        <button><a href="more.html">Explore More</a></button>
     </div>
-
-    <!-- Core Values Section -->
-    <section class="core-values py-5">
-        <div class="container text-center">
-            <h2>Our Core Values</h2>
-            <p>Guiding our students towards excellence:</p>
-            <div class="row row-cols-2 row-cols-md-4 g-4">
-                <div class="col"><div class="card p-3"><h5>Love</h5></div></div>
-                <div class="col"><div class="card p-3"><h5>Honesty</h5></div></div>
-                <div class="col"><div class="card p-3"><h5>Responsibility</h5></div></div>
-                <div class="col"><div class="card p-3"><h5>Teamwork</h5></div></div>
-                <div class="col"><div class="card p-3"><h5>Unity</h5></div></div>
-                <div class="col"><div class="card p-3"><h5>Respect</h5></div></div>
-                <div class="col"><div class="card p-3"><h5>Integrity</h5></div></div>
-                <div class="col"><div class="card p-3"><h5>Discipline</h5></div></div>
+    
+    
+    <main class="container">
+        <section id="about" class="section">
+            <h2>Core Values</h2>
+            <p>Our core values guide every aspect of our journey, shaping individuals of strong:</p>
+            <div class="values-grid">
+                <div class="value">Love</div>
+                <div class="value">Honesty</div>
+                <div class="value">Responsibility</div>
+                <div class="value">Teamwork</div>
+                <div class="value">Unity</div>
+                <div class="value">Respect</div>
+                <div class="value">Integrity</div>
+                <div class="value">Discipline</div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+        </section>
+        
+        <section id="features" class="section">
+            <h2>Our Offerings</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="pics/outgoing.jpg" alt="Classroom">
+                    <div class="card-content">
+                        <h3>Modern Classrooms</h3>
+                        <p>State-of-the-art classrooms designed for 21st-century learning.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="pics/running.JPG" alt="Sports">
+                    <div class="card-content">
+                        <h3>Co-Curricular Activities</h3>
+                        <p>We offer sports, music, drama, and clubs for all-round growth.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="pics/bus.JPG" alt="Transport">
+                    <div class="card-content">
+                        <h3>Efficient Transport</h3>
+                        <p>Pick up and Dropping of kids is secure.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
     <footer>
-        <p>&copy; 2025 Future Life Academy. All Rights Reserved.</p>
-        <p>Designed by Ace446</p>
-        <p><a href="privacy-policy.html" class="text-light">Privacy Policy</a> | <a href="terms-of-service.html" class="text-light">Terms of Service</a></p>
+        <em><p>&copy; 2025 Future Life Academy. All Rights Reserved.</p>
+        <p>Designed by Ace446</p></em>
     </footer>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".nav-links").classList.toggle("show");
+        }
+    </script>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
